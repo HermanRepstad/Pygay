@@ -2,6 +2,12 @@ import pygame
 import sys
 
 pygame.init()
+pygame.mixer.init()
+
+
+pygame.mixer.music.load("assets/ELMCM.mp3")
+pygame.mixer.music.play(-1)
+
 
 # Screen
 WIDTH, HEIGHT = 1920, 1080
@@ -21,8 +27,8 @@ intro_img = pygame.transform.scale(intro_img, (WIDTH, HEIGHT))
 bakgrunn = pygame.image.load("assets/Bakgrunnrom.png").convert()
 bakgrunn = pygame.transform.scale(bakgrunn, (WIDTH, HEIGHT))
 
-wizard = pygame.image.load("assets/Wizard.png").convert()
-wizard = pygame.transform.scale(wizard, (WIDTH, HEIGHT))
+wizard = pygame.image.load("assets/Wizard.png").convert_alpha()
+wizard = pygame.transform.scale(wizard, (300, 300))
 
 # Player rect (HITBOX = IMAGE SIZE)
 player_rect = player.get_rect()
@@ -61,7 +67,7 @@ walk_frames = []
 for i in range(1, 5):
     img = pygame.image.load(f"assets/Player{i}.png").convert_alpha()
     img = pygame.transform.scale_by(img, 7)
-    walk_frames.append(img)
+    walk_frames.append(img) 
 
 frame_index = 0
 animation_speed = 0.15
@@ -106,7 +112,7 @@ while True:
     # Key presses
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a]:
-        player_rect.x -= speed
+        player_rect.x -= speed  
     if keys[pygame.K_d]:
         player_rect.x += speed
 
@@ -136,16 +142,17 @@ while True:
     
     player_rect.clamp_ip(screen.get_rect())
     # Draw
-    
-
-    # Ground
-   
 
     # Player
     screen.blit(areas[current_area], (0, 0))
+    
+
+
+    if current_area == 0:
+        screen.blit(wizard, (1400, 598))
+
     screen.blit(current_frame, player_rect)
 
     pygame.display.flip()
     clock.tick(60)
 
-   
