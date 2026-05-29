@@ -109,7 +109,7 @@ current_area = 1
 WHITE = (240, 240, 240)
 DARK = (30, 30, 30)
 
-speed = 12
+speed = 9
 y_velocity = 0
 gravity = 0.6
 jump_strength = -15

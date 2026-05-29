@@ -3,3 +3,5 @@ Jeg fikk en ide i hodet om en trollmann som bruker øynene sine til å lage leve
 Dette spillet skal fokusere mest på historien, så det skal være ganske enkelt gameplay
 
 Til nå har jeg laget bevegelse og muligheten til å gå ut av huset man starter i. Denne uka har jeg brukt mest på pixel art.
+
+Planen er å lage et enelt, storybasert puzzlespill.
